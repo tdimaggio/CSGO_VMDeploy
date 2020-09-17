@@ -1,0 +1,114 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "eastus"
+        },
+        "networkInterfaceName": {
+            "value": "csgostm02927"
+        },
+        "networkSecurityGroupName": {
+            "value": "csgostm-nsg"
+        },
+        "networkSecurityGroupRules": {
+            "value": [
+                {
+                    "name": "default-allow-ssh",
+                    "properties": {
+                        "priority": 1001,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceApplicationSecurityGroups": [],
+                        "destinationApplicationSecurityGroups": [],
+                        "sourceAddressPrefix": "24.186.213.172",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "22"
+                    }
+                }
+            ]
+        },
+        "subnetName": {
+            "value": "default"
+        },
+        "virtualNetworkName": {
+            "value": "csgo-vnet"
+        },
+        "addressPrefixes": {
+            "value": [
+                "10.0.0.0/24"
+            ]
+        },
+        "subnets": {
+            "value": [
+                {
+                    "name": "default",
+                    "properties": {
+                        "addressPrefix": "10.0.0.0/24"
+                    }
+                }
+            ]
+        },
+        "publicIpAddressName": {
+            "value": "csgostm02-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Dynamic"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        },
+        "virtualMachineName": {
+            "value": "csgostm02"
+        },
+        "virtualMachineComputerName": {
+            "value": "csgostm02"
+        },
+        "virtualMachineRG": {
+            "value": "csgo"
+        },
+        "osDiskType": {
+            "value": "Premium_LRS"
+        },
+        "dataDisks": {
+            "value": [
+                {
+                    "lun": 0,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "csgostm02_DataDisk_0",
+                    "storageAccountType": null,
+                    "diskSizeGB": null,
+                    "diskEncryptionSet": null
+                }
+            ]
+        },
+        "dataDiskResources": {
+            "value": [
+                {
+                    "name": "csgostm02_DataDisk_0",
+                    "sku": "Premium_LRS",
+                    "properties": {
+                        "diskSizeGB": 25,
+                        "creationData": {
+                            "createOption": "empty"
+                        }
+                    }
+                }
+            ]
+        },
+        "virtualMachineSize": {
+            "value": "Standard_B1s"
+        },
+      "adminUsername": {
+        "value": "azureuser"
+      }
+      "adminPublicKey": {
+        "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDcE4uYeqnxuUh38O3JEbChDsHX5z4jJBT3wmfJrAOI/eGQw1U6a20HI4c89bldWeIa6gzZZ7N/QJkF7SGj85vfieJnRaxrDR4jbDxGvN62HYWRhmKs9KOtDOlnc93O8rsVrNMwDYfafRve3MHyKQnKZtjlZAhzb/ZT4enBS8YQt90v9aAp69Kx1Cf6vg2kTbekJ+6WLtXEjgsXDal61XIpRkN4LAK1lVUjKSUzQZaEEmQzFMJBKHwTUwbA+aY4dl5mrS4iru6DOmfpZJg7l1Y9Qi9xO+Ga9hkrPmp7GjCZA0uQ4et642oikbcU6eGEhxhhH1ooQhllNpyH/5R8xh8opBY2oEqcWwdLudYQvjJpNJvoqma1eDD6Qe+X5S7breow8toKQctFNHn5SIWb3toPaJRY47fPtuPA706htUnfTNM79H3zK7v0q3thrIXLotdb4l+EIqhqO9zXceVeOCwhwO4ukNK+RPiONVQf+apqS+55pvVY6pk86yYHBo1i3oc= imported-openssh-key"
+      },
+    }
+}
